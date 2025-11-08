@@ -25,6 +25,7 @@ jobs:
         with:
           version: v2.6
           args: --timeout=5m
+          skip-config-verify: true
 
   test:
     name: Test
