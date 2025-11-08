@@ -16,11 +16,10 @@ linters:
     - gocritic
     - revive
 
-linters-settings:
+linter-settings:
   goimports:
     local-prefixes: go-starter
 
 issues:
-  exclude-use-default: false
   max-issues-per-linter: 0
   max-same-issues: 0
