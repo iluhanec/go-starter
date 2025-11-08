@@ -1,3 +1,4 @@
+// Package main provides a simple Go starter application.
 package main
 
 import "fmt"

@@ -4,7 +4,7 @@ A minimal Go starter repository with VSCode configuration, linting, testing, a M
 
 ## Prerequisites
 
-- Go 1.20+
+- Go 1.25+
 - [golangci-lint](https://golangci-lint.run)
 - Make
 - VSCode with the Go extension installed (pre-release version is required to support golangci-lint v2)
@@ -39,20 +39,7 @@ VSCode will automatically format and organize imports on save.
 
 ## Running & Custom Commands
 
-This repo uses a **Makefile** to define common tasks, similar to `package.json` scripts in Node.js.
-
-| Command      | Description         |
-| ------------ | ------------------- |
-| `make run`   | Run the application |
-| `make build` | Compile the binary  |
-| `make test`  | Execute all tests   |
-| `make lint`  | Run code linter     |
-
-Example:
-
-```sh
-make run
-```
+This repo uses a **Makefile** to define common tasks.
 
 ## Building a Binary
 
@@ -63,10 +50,3 @@ make build
 ./go-starter
 ```
 
-Or directly with Go:
-
-```sh
-go build -o go-starter main.go
-./go-starter
-
-```
