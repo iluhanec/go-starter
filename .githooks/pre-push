@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+echo "Running fmt check..."
+make fmt-check
+
 echo "Running linter..."
 make lint
 
