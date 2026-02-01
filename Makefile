@@ -1,5 +1,5 @@
+SHELL := bash
 BINARY_NAME := go-starter
-GO_VERSION := 1.25
 COVERAGE_FILE := coverage.out
 
 .PHONY: run build test test-race lint fmt vet clean coverage
