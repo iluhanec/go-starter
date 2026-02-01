@@ -9,7 +9,6 @@ linters:
   enable:
     - gosec
     - misspell
-    - staticcheck
     - revive
 
 formatters:

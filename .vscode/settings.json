@@ -1,9 +1,6 @@
 {
-  
+  "files.insertFinalNewline": true,
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
-  },
   "go.lintTool": "golangci-lint",
   "go.lintFlags": [
     "--path-mode=abs",
