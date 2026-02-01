@@ -7,6 +7,7 @@ A minimal Go starter repository with VSCode configuration, linting, testing, a M
 - Go 1.25+
 - [golangci-lint](https://golangci-lint.run)
 - Make
+- dprint
 - VSCode with the Go extension installed (pre-release version is required to support golangci-lint v2)
 
 ## Setup
@@ -49,4 +50,3 @@ You can compile your application into a standalone executable:
 make build
 ./go-starter
 ```
-

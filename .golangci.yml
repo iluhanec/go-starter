@@ -5,21 +5,16 @@ run:
   tests: true
 
 linters:
+  default: standard
   enable:
-    - govet
-    - errcheck
-    - staticcheck
-    - unused
     - gosec
-    - ineffassign
     - misspell
-    - gocritic
     - revive
 
-linter-settings:
-  goimports:
-    local-prefixes: go-starter
-
-issues:
-  max-issues-per-linter: 0
-  max-same-issues: 0
+formatters:
+  enable:
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - go-starter
