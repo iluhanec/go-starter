@@ -14,5 +14,5 @@
     "fmt",
     "--stdin"
   ],
-  "go.useLanguageServer": true,
+  "go.useLanguageServer": true
 }

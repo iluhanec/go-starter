@@ -21,9 +21,11 @@ lint:
 
 fmt:
 	golangci-lint fmt
+	dprint format
 
 fmt-check:
 	golangci-lint fmt --diff
+	dprint check
 
 clean:
 	rm -f $(BINARY_NAME)

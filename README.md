@@ -49,4 +49,3 @@ You can compile your application into a standalone executable:
 make build
 ./go-starter
 ```
-
