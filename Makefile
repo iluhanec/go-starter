@@ -2,7 +2,7 @@ SHELL := bash
 BINARY_NAME := go-starter
 COVERAGE_FILE := coverage.out
 
-.PHONY: run build test test-race lint fmt vet clean coverage
+.PHONY: run build test test-race lint fmt fmt-check clean coverage
 
 run:
 	go run main.go
@@ -20,10 +20,10 @@ lint:
 	golangci-lint run
 
 fmt:
-	go fmt ./...
+	golangci-lint fmt
 
-vet:
-	go vet ./...
+fmt-check:
+	golangci-lint fmt --diff
 
 clean:
 	rm -f $(BINARY_NAME)
