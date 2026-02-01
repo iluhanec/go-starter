@@ -34,11 +34,3 @@ A minimal Go starter repository with VSCode configuration, linting, testing, a M
 ## Running & Custom Commands
 
 This repo uses a **Makefile** to define common tasks.
-
-## Building a Binary
-
-You can compile your application into a standalone executable:
-
-```sh
-make build
-```
