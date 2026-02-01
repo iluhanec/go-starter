@@ -1,6 +1,9 @@
 {
   "files.insertFinalNewline": true,
   "editor.formatOnSave": true,
+  "[json]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[yaml]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[markdown]": { "editor.defaultFormatter": "dprint.dprint" },
   "go.lintTool": "golangci-lint",
   "go.lintFlags": [
     "--path-mode=abs",
