@@ -31,13 +31,6 @@ A minimal Go starter repository with VSCode configuration, linting, testing, a M
    chmod +x .githooks/pre-push
    ```
 
-4. Open in VSCode:
-   ```sh
-   code .
-   ```
-
-VSCode will automatically format and organize imports on save.
-
 ## Running & Custom Commands
 
 This repo uses a **Makefile** to define common tasks.
@@ -48,5 +41,4 @@ You can compile your application into a standalone executable:
 
 ```sh
 make build
-./go-starter
 ```
