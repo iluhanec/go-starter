@@ -5,10 +5,10 @@ COVERAGE_FILE := coverage.out
 .PHONY: run build test test-race lint fmt fmt-check clean coverage
 
 run:
-	go run main.go
+	go run .
 
 build:
-	go build -o $(BINARY_NAME) main.go
+	go build -o $(BINARY_NAME) .
 
 test:
 	go test -v ./...
