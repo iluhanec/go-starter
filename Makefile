@@ -21,7 +21,7 @@ lint:
 
 fmt:
 	golangci-lint fmt
-	dprint format
+	dprint fmt
 
 fmt-check:
 	golangci-lint fmt --diff
