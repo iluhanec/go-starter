@@ -8,9 +8,7 @@
 # Tech Spec: <NNN> - <Short title>
 
 - **Status:** Draft | Accepted | Implementing | Done | Deprecated
-- **Owner:** <name/handle>
 - **Last updated:** <YYYY-MM-DD>
-- **Related issues/PRs:** <links>
 
 ## Context
 
@@ -97,7 +95,7 @@ flowchart LR
   B --> C[(Storage)]
 ```
 
-### Sequence diagram (optional)
+### Sequence diagram
 
 ```mermaid
 sequenceDiagram

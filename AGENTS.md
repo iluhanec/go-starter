@@ -47,8 +47,16 @@ A good plan includes:
 - Use **outside-in** TDD:
   1. Start with the simplest high-level test that validates user-visible behavior (app/module/function from the caller’s perspective).
      Examples: CLI exits successfully, HTTP handler returns expected status/body for the simplest route, etc.
-  2. After finishing each test, ask if user to review before proceeding.
-  3. After finishing implementation to satisfy one test, ask user to review before proceeding.
+  2. After finishing each test:
+     1. Run `make fmt-check` and fix formatting issues
+     2. Run `make lint` and fix linting issues
+     3. Run `make test` and check that the test you created fails with expected error
+     4. Ask the user if he wants to proceed and wait for an answer
+  3. After finishing implementation that satisfies a failed test from step 2:
+     1. Run `make fmt-check` and fix formatting issues
+     2. Run `make lint` and fix linting issues
+     3. Run `make test` and check that the test you created suceeds
+     4. Ask the user if he wants to proceed and wait for an answer
   4. Then work inward with more focused tests (package/unit) as needed to drive design and edge cases.
 - Keep tests **clear, fast, and deterministic**.
 
@@ -59,9 +67,12 @@ After writing each test, evaluate:
 - Was the test easy to write and easy to read?
 - Is the API/abstraction pleasant to use from the caller’s perspective?
 
+Write answers to these questions explicitly, so the user can check that you do the design evaluation.
+
 If the test requires awkward setup, excessive mocking, or unclear flows:
 
 - Propose a design/API change that improves usability.
+- Wait for the user to answer to your proposal before proceeding.
 - Update the relevant tech spec to reflect the decision.
 
 ---
@@ -74,7 +85,7 @@ Maintain Markdown tech specs under `docs/tech-spec/`.
   - Requirements and constraints
   - Architecture and design
   - Key decisions and trade-offs
-  - Diagrams (UML/sequence/component) as Mermaid/PlantUML in Markdown
+  - Diagrams (UML/sequence/component) as Mermaid in Markdown
   - Testing strategy and rollout/migration notes (if applicable)
   - Security/observability considerations (if applicable)
 
@@ -110,6 +121,7 @@ This repository uses a Makefile to automate common tasks.
 Run the fastest checks that give feedback:
 
 - `make fmt-check`
+- `make lint`
 - `make test` (or the smallest relevant subset, if available)
 
 ### Before final handoff
@@ -120,11 +132,6 @@ Run the full verification set:
 - `make lint`
 - `make test`
 - `make build`
-
-### Clean builds
-
-- `make clean` is optional.
-- Use it when build artifacts might affect results or when validating a clean build.
 
 ---
 
