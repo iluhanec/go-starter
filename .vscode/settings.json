@@ -1,5 +1,7 @@
 {
   "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
   "editor.formatOnSave": true,
   "[json]": { "editor.defaultFormatter": "dprint.dprint" },
   "[yaml]": { "editor.defaultFormatter": "dprint.dprint" },
