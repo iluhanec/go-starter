@@ -31,6 +31,7 @@ jobs:
       - name: install dprint
         run: |
           curl -fsSL https://dprint.dev/install.sh | sh
+          echo "${HOME}/.dprint/bin" >> $GITHUB_PATH
 
       - name: Run lint
         run: make lint
