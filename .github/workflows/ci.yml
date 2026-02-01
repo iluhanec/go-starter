@@ -33,17 +33,14 @@ jobs:
           curl -fsSL https://dprint.dev/install.sh | sh
           echo "${HOME}/.dprint/bin" >> $GITHUB_PATH
 
+      - name: Run fmt check
+        run: make fmt-check
+
       - name: Run lint
         run: make lint
 
       - name: Run tests with race detector
         run: make test-race
-
-      - name: Run fmt check
-        run: make fmt-check
-
-      - name: Run lint
-        run: make vet
 
       - name: Build
         run: make build
