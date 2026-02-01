@@ -28,7 +28,7 @@ jobs:
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.6.0
           echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 
-      - name: install dprint
+      - name: Install dprint
         run: |
           curl -fsSL https://dprint.dev/install.sh | sh
           echo "${HOME}/.dprint/bin" >> $GITHUB_PATH
