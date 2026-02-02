@@ -47,17 +47,22 @@ A good plan includes:
 - Use **outside-in** TDD:
   1. Start with the simplest high-level test that validates user-visible behavior (app/module/function from the caller’s perspective).
      Examples: CLI exits successfully, HTTP handler returns expected status/body for the simplest route, etc.
-  2. After finishing each test:
+  2. **RED** — After finishing each test:
      1. Run `make fmt-check` and fix formatting issues
      2. Run `make lint` and fix linting issues
      3. Run `make test` and check that the test you created fails with expected error
      4. Ask the user if he wants to proceed and wait for an answer
-  3. After finishing implementation that satisfies a failed test from step 2:
+  3. **GREEN** — After finishing implementation that satisfies a failed test from step 2:
      1. Run `make fmt-check` and fix formatting issues
      2. Run `make lint` and fix linting issues
-     3. Run `make test` and check that the test you created suceeds
+     3. Run `make test` and check that the test you created succeeds
      4. Ask the user if he wants to proceed and wait for an answer
-  4. Then work inward with more focused tests (package/unit) as needed to drive design and edge cases.
+  4. **REFACTOR** — Once tests pass, improve the code while keeping tests green:
+     1. Look for duplication, unclear naming, or overly complex logic
+     2. Extract helpers, consolidate similar code, improve readability
+     3. Run `make fmt-check && make lint && make test` after each refactor to ensure nothing broke
+     4. Skip this step if the code is already clean; don't refactor for its own sake
+  5. Then work inward with more focused tests (package/unit) as needed to drive design and edge cases.
 - Keep tests **clear, fast, and deterministic**.
 
 ### 4) TDD as a design tool (mandatory reflection step)
@@ -109,6 +114,26 @@ Maintain Markdown tech specs under `docs/tech-spec/`.
 - Rollout / migration (if applicable)
 - Observability & security notes (if applicable)
 - Open questions
+
+### Implementation progress tracking
+
+For tech specs, maintain a companion implementation progress file:
+
+- **Naming:** `docs/tech-spec/NNN-feature-abc-impl.md` (same prefix as the spec, with `-impl` suffix)
+- **Purpose:** Track what's done, what's in progress, and what's pending
+- **When to use:** Multi-session implementations, specs with multiple endpoints/features, or when work may be interrupted
+
+Recommended sections for progress files:
+
+- Overview (link to tech spec)
+- Implementation status (completed / in progress / pending tables)
+- Current file structure
+- API endpoints status (if applicable)
+- Next steps to resume (detailed enough for another agent or future session)
+- Test helpers available
+- Notes and decisions made during implementation
+
+Update the progress file after completing each feature or at natural stopping points.
 
 ---
 
