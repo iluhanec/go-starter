@@ -52,7 +52,7 @@ A good plan includes:
      2. Run `make lint` and fix linting issues
      3. Run `make test` and check that the test you created fails with expected error
      4. Ask the user if he wants to proceed and wait for an answer
-  3. After finishing implementation that satisfies a failed test from step 2:
+  3. **GREEN** — After finishing implementation that satisfies a failed test from step 2:
      1. Run `make fmt-check` and fix formatting issues
      2. Run `make lint` and fix linting issues
      3. Run `make test` and check that the test you created succeeds
