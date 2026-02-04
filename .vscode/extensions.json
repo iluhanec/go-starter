@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "golang.go",
-    "dprint.dprint"
+    "dprint.dprint",
+    "ms-vscode-remote.remote-containers"
   ]
 }

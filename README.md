@@ -4,6 +4,12 @@ A minimal Go starter repository with VSCode configuration, linting, testing, a M
 
 ## Prerequisites
 
+Using Dev Containers:
+
+- Docker
+
+Manual setup:
+
 - Go 1.25+
 - [golangci-lint](https://golangci-lint.run)
 - Make
