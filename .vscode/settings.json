@@ -6,14 +6,15 @@
   "[json]": { "editor.defaultFormatter": "dprint.dprint" },
   "[yaml]": { "editor.defaultFormatter": "dprint.dprint" },
   "[markdown]": { "editor.defaultFormatter": "dprint.dprint" },
-  "go.lintTool": "golangci-lint",
+  "[go]": { "editor.defaultFormatter": "golang.go" },
+  "go.lintTool": "golangci-lint-v2",
   "go.lintFlags": [
     "--path-mode=abs",
     "--fast-only"
   ],
   "go.formatTool": "custom",
   "go.alternateTools": {
-    "customFormatter": "golangci-lint"
+    "customFormatter": "golangci-lint-v2"
   },
   "go.formatFlags": [
     "fmt",

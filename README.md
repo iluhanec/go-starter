@@ -10,6 +10,19 @@ A minimal Go starter repository with VSCode configuration, linting, testing, a M
 - dprint
 - VSCode with the Go extension installed (pre-release version is required to support golangci-lint v2)
 
+> **Warning:** The VS Code Go extension expects a binary named `golangci-lint-v2` to correctly work with golangci-lint version 2. If you have `golangci-lint` installed but the extension can't find it, create a symlink:
+>
+> ```sh
+> export GOLANG_CI_PATH=$(which golangci-lint)
+> ln -s "$GOLANG_CI_PATH" "${GOLANG_CI_PATH}-v2"
+>
+> # Verify the symlink was created
+> ls -l $(which golangci-lint-v2)
+>
+> # Test that golangci-lint-v2 works
+> golangci-lint-v2 help
+> ```
+
 ## Setup
 
 1. Clone the repository:
