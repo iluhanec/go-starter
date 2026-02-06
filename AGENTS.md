@@ -161,6 +161,53 @@ Run the full verification set:
 
 ---
 
+## Security
+
+Agents must avoid introducing security vulnerabilities. The CI enforces `gosec` static analysis, but automated checks don't catch everything.
+
+### Input handling
+
+- **Validate at boundaries:** Sanitize all external input (CLI args, env vars, file contents, network data) before use.
+- **Avoid path traversal:** When accepting file paths from users, validate they don't escape intended directories. Use `filepath.Clean()` and verify the result stays within bounds.
+- **No shell injection:** Never pass unsanitized input to `exec.Command`. Prefer argument arrays over shell strings.
+
+```go
+// Good
+exec.Command("git", "clone", url)
+
+// Bad - shell injection risk
+exec.Command("sh", "-c", "git clone "+url)
+```
+
+### Secrets and credentials
+
+- **Never commit secrets:** No API keys, passwords, tokens, or private keys in code or config files.
+- **Environment variables:** Use env vars for sensitive config; document required vars in README.
+- **File permissions:** When creating files with sensitive data, use restrictive permissions (`0600` for files, `0700` for directories).
+
+### Dependencies
+
+- **Minimize dependencies:** Prefer stdlib over third-party packages when reasonable.
+- **Vet new dependencies:** Before adding a dependency, verify it's actively maintained, widely used, and doesn't introduce unnecessary transitive dependencies.
+- **No `replace` directives:** Avoid `go.mod` replace directives pointing to external URLs.
+
+### Code patterns to avoid
+
+| Pattern                           | Risk                | Alternative                   |
+| --------------------------------- | ------------------- | ----------------------------- |
+| `fmt.Sprintf` for SQL             | SQL injection       | Use parameterized queries     |
+| `template.HTML()` with user input | XSS                 | Use auto-escaping templates   |
+| `os.MkdirAll` with user path      | Directory traversal | Validate path first           |
+| Hardcoded crypto keys             | Key exposure        | Load from env/secrets manager |
+| `math/rand` for security          | Predictable output  | Use `crypto/rand`             |
+
+### Verification
+
+- `make lint` runs `gosec` — address all findings before handoff.
+- For security-sensitive changes, explicitly note in the handoff what attack vectors were considered.
+
+---
+
 ## Handoff expectations (what to report back)
 
 When you finish, provide:
